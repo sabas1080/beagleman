@@ -20,11 +20,11 @@ from threading import Thread
 requests.packages.urllib3.disable_warnings(InsecurePlatformWarning)
 
 # ------ Start User configuration settings --------
-sphinx_data_path = "/root/pocketsphinx/"
+sphinx_data_path = "/home/pi/pocketsphinx/"
 modeldir = sphinx_data_path+"/model/"
 datadir = sphinx_data_path+"/test/data"
 
-recording_file_path = "/root/beagleman/"
+recording_file_path = "/home/pi/beagleman/"
 filename=recording_file_path+"/myfile.wav"
 filename_raw=recording_file_path+"/myfile.pcm"
 
