@@ -17,7 +17,7 @@ from StringIO import StringIO
 from threading import Thread
 
 # Avoid warning about insure request
-requests.packages.urllib3.disable_warnings(InsecurePlatformWarning)
+requests.packages.urllib3.disable_warnings()
 
 # ------ Start User configuration settings --------
 sphinx_data_path = "/home/pi/pocketsphinx/"
@@ -78,7 +78,7 @@ decoder = Decoder(config)
 decoder.start_utt()
 
 # Using slightly outdated urlib3 software by default. But disable harmless warning
-requests.packages.urllib3.disable_warnings(InsecurePlatformWarning)
+requests.packages.urllib3.disable_warnings()
 
 # All Alexa code based on awesome code from AlexaPi
 # https://github.com/sammachin/AlexaPi
