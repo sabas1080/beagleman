@@ -18,15 +18,18 @@ apt-get install build-essential python-dev libcurl4-openssl-dev python-pip libss
 
 pip install pycurl cherrypy
 
+change the next line in /lib/modprobe.d/aliases.conf
+
 sudo nano /lib/modprobe.d/aliases.conf
 
+```bash
 # This sets the index value of the cards but doesn't reorder.
 options snd_usb_audio index=0
 options snd_bcm2835 index=1
 
 # Does the reordering.
 options snd slots=snd-usb-audio,snd-bcm2835
-
+```
 
 apt-get install libtool automake bison libffi-dev
 
