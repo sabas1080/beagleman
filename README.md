@@ -1,5 +1,4 @@
 Alexa with Raspberry Pi
-Fork of BeagleMan
 =======
 
 by Andres Sabas
