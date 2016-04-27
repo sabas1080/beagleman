@@ -7,6 +7,7 @@ import requests
 import re
 import sys
 import time
+import vlc
 
 from creds import *
 from hdc1000 import getTemperature
@@ -260,7 +261,12 @@ def web_service():
 		alexa_thread.join()
 
                 # Play Alexa response
-		os.system('play  -c 1 -r 24000 -q {}response.mp3  > /dev/null 2>&1'.format(path))
+		#os.system('play  -c 1 -r 24000 -q {}response.mp3  > /dev/null 2>&1'.format(path))i = vlc.Instance('--aout=alsa', '--alsa-audio-device=hw:CARD=AL$
+                m = i.media_new('response.mp3')
+                p = i.media_player_new()
+                p.set_media(m)
+                p.audio_set_volume(100)
+                p.play()
 		time.sleep(.5)
 		
 
