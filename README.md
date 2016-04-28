@@ -1,6 +1,8 @@
 Alexa with Raspberry Pi
 =======
 
+[Video Demo](https://www.youtube.com/watch?v=8xuUS6Oi5nY)
+
 by Andres Sabas
 The Inventor's House Hackerspace
 26 april 2016
@@ -12,10 +14,13 @@ The Inventor's House Hackerspace
 ##Instruction
 ###Install dependencies
 
-
+```
 apt-get install build-essential python-dev libcurl4-openssl-dev python-pip libssl-dev wig python-alsaaudio sox espeak libsox-fmt-mp3
-
+```
+Install packages python 
+```
 pip install pycurl cherrypy
+```
 
 change the next line in /lib/modprobe.d/aliases.conf
 
@@ -30,6 +35,8 @@ options snd_bcm2835 index=1
 options snd slots=snd-usb-audio,snd-bcm2835
 ```
 
+```
 apt-get install libtool automake bison libffi-dev
+```
 
 Based in [BeagleMan](https://github.com/fcooper/beagleman) work

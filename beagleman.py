@@ -10,7 +10,7 @@ import time
 import vlc
 
 from creds import *
-from hdc1000 import getTemperature
+#from hdc1000 import getTemperature
 from pocketsphinx.pocketsphinx import *
 from requests.packages.urllib3.exceptions import *
 from sphinxbase.sphinxbase import *
@@ -30,11 +30,11 @@ filename=recording_file_path+"/myfile.wav"
 filename_raw=recording_file_path+"/myfile.pcm"
 
 # Personalize the robot :)
-username = "Franklin"
+username = "Inventor"
 
 # Trigger phrase. Pick a phrase that is easy to save repeatedly the SAME way
 # seems by default a single syllable word is better
-trigger_phrase = "dog"
+trigger_phrase = "cat"
 
 wit_token = "<Wit AI Token>"
 
@@ -110,7 +110,7 @@ def gettoken():
 		return token
 	else:
 		return False
-		
+
 def alexa():
 	url = 'https://access-alexa-na.amazon.com/v1/avs/speechrecognizer/recognize'
 	headers = {'Authorization' : 'Bearer %s' % gettoken()}
@@ -141,7 +141,7 @@ def alexa():
 		files = [
 				('file', ('request', json.dumps(d), 'application/json; charset=UTF-8')),
 				('file', ('audio', inf, 'audio/L16; rate=44100; channels=1'))
-				]	
+				]
 		r = requests.post(url, headers=headers, files=files)
 
 	if r.status_code == 200:
@@ -216,7 +216,7 @@ def wit_ai():
 	c.setopt(c.WRITEFUNCTION, output.write)
 
         # Ignore SSL verification
-	c.setopt(pycurl.SSL_VERIFYPEER, 0)   
+	c.setopt(pycurl.SSL_VERIFYPEER, 0)
 	c.setopt(pycurl.SSL_VERIFYHOST, 0)
 
         # Send our Web Service request
@@ -228,7 +228,7 @@ def wit_ai():
 	response =  json.loads(output.getvalue())
 
 	wit_ai_received = False
-   
+
         # Check if we got an error
 	if 'error' not in response.keys():
                 print "Debug: Wit.ai believe the audio said: ", response["_text"]
@@ -268,7 +268,7 @@ def web_service():
                 p.audio_set_volume(100)
                 p.play()
 		time.sleep(.5)
-		
+		print "Debug: Alexa Response"
 
 while internet_on() == False:
 	print "."
